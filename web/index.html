@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For account details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="pay_buddy">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Pay Buddy</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    "3492526871"
+  </script>
+  <script>
+    /**
+    * Creates a Promise that resolves after a specified delay.
+    *
+    * @param {number} delay - The delay duration in milliseconds.
+    * @returns {Promise} A Promise that resolves after the specified delay.
+    */
+    function addDelay(delay) {
+    return new Promise((resolve) => setTimeout(resolve, delay));
+    }
+
+    window.addEventListener('load', function (ev) {
+    var web_initial_loader = document.getElementById("web-initial-loader");
+    _flutter.loader.load({
+    config: {'renderer': 'html'},
+    serviceWorkerSettings: {
+    serviceWorkerVersion: "3492526871",
+    },
+    onEntrypointLoaded: async function (engineInitializer) {
+
+    let appRunner = await engineInitializer.initializeEngine();
+
+
+    await appRunner.runApp();
+
+    // Add a delay using the addDelay function.
+    await addDelay(500);
+
+    if (web_initial_loader) {
+    web_initial_loader.remove();
+    }
+    }
+    });
+    });
+
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+    // Service workers are supported. Use them.
+    window.addEventListener('load', function () {
+    // ADD THIS LINE
+    navigator.serviceWorker.register('/firebase-messaging-sw.js');
+
+    // Wait for registration to finish before dropping the <script> tag.
+    // Otherwise, the browser will load the script multiple times,
+    // potentially different versions.
+    var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+
+    // ...
+    });
+    }
+
+
+
+  </script>
+</body>
+</html>
